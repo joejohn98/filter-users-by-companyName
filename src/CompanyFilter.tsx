@@ -28,11 +28,31 @@ const CompanyFilter = () => {
         fetchUsers()
     }, [])
 
+    if(isLoading) {
+        return <p style={styles.loading}>Loading...</p>
+    }
+    if(error) {
+        return <p style={styles.error}>Error: {error}</p>
+    }
+
   return (
     <div>
       <h2>Users</h2>
     </div>
   )
+}
+
+const styles = {
+    loading: {
+        color: 'blue',
+        fontSize: '20px',
+        fontWeight: 'bold',
+    },
+    error: {
+        color: 'red',
+        fontSize: '20px',
+        fontWeight: 'bold',
+    }
 }
 
 export default CompanyFilter
